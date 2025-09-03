@@ -1097,7 +1097,9 @@ select.form-control {
   position: relative;
   overflow: hidden;
   padding-top: 80px;
+  margin-top: 18px;
 }
+
 
 .hero-background {
   position: absolute;
@@ -2931,3 +2933,4 @@ select.form-control {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
