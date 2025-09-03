@@ -2699,10 +2699,22 @@ select.form-control {
   }
 
   .nav-links.active {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
-  }
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+
+  background: rgba(35, 38, 49, 0.7);      
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); 
+  border: 1px solid rgba(255, 255, 255, 0.1); 
+
+
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+
+  transition: all 0.3s ease-in-out;
+}
 
   .nav-link {
     width: 100%;
@@ -2918,4 +2930,5 @@ select.form-control {
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+
 }
