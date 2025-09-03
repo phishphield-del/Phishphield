@@ -1189,6 +1189,7 @@ select.form-control {
 
 .hero-content {
   animation: hero-slide-in 1s ease-out;
+  margin-top: 25px;
 }
 
 @keyframes hero-slide-in {
@@ -2932,3 +2933,4 @@ select.form-control {
   to { opacity: 1; transform: translateY(0); }
 
 }
+
