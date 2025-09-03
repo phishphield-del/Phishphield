@@ -919,7 +919,7 @@ select.form-control {
   padding: var(--space-12) var(--space-20);
   border-radius: var(--radius-full);
   text-decoration: none;
-  color: white;
+  color: grey;
   font-weight: var(--font-weight-medium);
   transition: all var(--duration-normal) var(--ease-standard);
   overflow: hidden;
@@ -2699,7 +2699,7 @@ select.form-control {
     transition: all var(--duration-normal) var(--ease-standard);
   }
 
-  .nav-links.active {
+ .nav-links.active {
   transform: translateY(0);
   opacity: 1;
   visibility: visible;
@@ -2716,7 +2716,6 @@ select.form-control {
 
   transition: all 0.3s ease-in-out;
 }
-
   .nav-link {
     width: 100%;
     justify-content: flex-start;
@@ -2832,10 +2831,10 @@ select.form-control {
 
 
   .contact-form-section {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(73, 51, 241, 0.05);
     padding: 3em 2em;
     border-radius: 20px;
-    box-shadow: 0 0 25px rgba(0, 255, 231, 0.15);
+    box-shadow: 0 0 25px rgba(58, 67, 221, 0.232);
     max-width: 700px;
     margin: 3em auto;
     animation: fadeInUp 1.3s ease;
@@ -2931,6 +2930,4 @@ select.form-control {
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
-
 }
-
