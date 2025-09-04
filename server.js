@@ -3,7 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import path from 'path';
-import rootdir from '../utils/pathutils';
+import rootdir from './utils/pathutils';
 import mongoose from 'mongoose';
 import session from 'express-session';
 import MongoStore from 'connect-mongo';
@@ -25,8 +25,8 @@ const PORT = process.env.PORT || 3000;
 
 // ===== View engine =====
 app.set('view engine', 'ejs');
-app.set("views", path.join(rootdir, "../views"));
-app.use(express.static(path.join(rootdir,"../public")));
+app.set("views", path.join(rootdir, "views"));
+app.use(express.static(path.join(rootdir,"public")));
 
 
 // ===== middleware =====
@@ -64,5 +64,6 @@ mongoose.connect(process.env.MONGO_URI)
 
 // ===== Start server =====
 app.listen(PORT, () => console.log(` ==> Server running at http://localhost:${PORT}`));
+
 
 
