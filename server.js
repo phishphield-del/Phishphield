@@ -49,7 +49,9 @@ app.use(userRouter);
 app.use(accessRouter);
 app.use(historyRouter);
 app.use(messageRouter);
-app.use(errorRouter);
+app.get('*',(req, res) =>{ 
+  res.status(404).render('error')
+ });;
 
 
 
@@ -62,3 +64,4 @@ mongoose.connect(process.env.MONGO_URI)
 
 // ===== Start server =====
 app.listen(PORT, () => console.log(` ==> Server running at http://localhost:${PORT}`));
+
