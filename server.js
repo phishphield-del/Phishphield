@@ -3,7 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import path from 'path';
-import rootdir from './utils/pathutils';
+import rootdir from '../utils/pathutils';
 import mongoose from 'mongoose';
 import session from 'express-session';
 import MongoStore from 'connect-mongo';
@@ -12,11 +12,11 @@ import MongoStore from 'connect-mongo';
 
 //========internal Module============
 
-import userRouter from './routers/userRouter.js';
-import errorRouter from './routers/ErrorRouter.js'
-import accessRouter from './routers/accessRouter.js'
-import historyRouter from './routers/historyRouter.js'
-import messageRouter from './routers/messageRouter.js'
+import userRouter from '../routers/userRouter.js';
+import accessRouter from '../routers/accessRouter.js'
+import historyRouter from '../routers/historyRouter.js'
+import messageRouter from '../routers/messageRouter.js'
+import errorRouter from '../routers/ErrorRouter.js'
 
 dotenv.config();
 
@@ -25,8 +25,8 @@ const PORT = process.env.PORT || 3000;
 
 // ===== View engine =====
 app.set('view engine', 'ejs');
-app.set('views', 'views');
-app.use(express.static(path.join(rootdir,'public')));
+app.set("views", path.join(rootdir, "../views"));
+app.use(express.static(path.join(rootdir,"../public")));
 
 
 // ===== middleware =====
@@ -44,16 +44,21 @@ app.use(
   })
 );
 
+// ===== Routers =====
+app.use(userRouter);
+app.use(accessRouter);
+app.use(historyRouter);
+app.use(messageRouter);
+app.use(errorRouter);
+
+
+
+
 // ===== MongoDB connection =====
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('--> MongoDB connected successfully.'))
   .catch(err => console.error('---> MongoDB connection error:', err));
 
-app.use(userRouter);
-app.use(accessRouter);
-app.use(errorRouter);
-app.use(historyRouter);
-app.use(messageRouter);
 
 // ===== Start server =====
 app.listen(PORT, () => console.log(` ==> Server running at http://localhost:${PORT}`));
