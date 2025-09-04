@@ -12,11 +12,11 @@ import MongoStore from 'connect-mongo';
 
 //========internal Module============
 
-import userRouter from '../routers/userRouter.js';
-import accessRouter from '../routers/accessRouter.js'
-import historyRouter from '../routers/historyRouter.js'
-import messageRouter from '../routers/messageRouter.js'
-
+import userRouter from './routers/userRouter.js';
+import accessRouter from './routers/accessRouter.js'
+import historyRouter from './routers/historyRouter.js'
+import messageRouter from './routers/messageRouter.js'
+// import errorRouter from './routers/ErrorRouter.js'
 
 dotenv.config();
 
@@ -49,6 +49,7 @@ app.use(userRouter);
 app.use(accessRouter);
 app.use(historyRouter);
 app.use(messageRouter);
+
 app.get('*',(req, res) =>{ 
   res.status(404).render('error')
  });;
@@ -64,6 +65,3 @@ mongoose.connect(process.env.MONGO_URI)
 
 // ===== Start server =====
 app.listen(PORT, () => console.log(` ==> Server running at http://localhost:${PORT}`));
-
-
-
